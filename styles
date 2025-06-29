@@ -1,0 +1,22 @@
+style>
+    body { margin:0; font-family: 'Inter', sans-serif; }
+    nav { position:fixed; top:0; width:100%; background:rgba(255,255,255,0.3); backdrop-filter: blur(10px); box-shadow:0 2px 10px rgba(0,0,0,0.1); display:flex; justify-content:space-between; align-items:center; padding:1rem; z-index:50; }
+    nav div { font-size:1.5rem; font-weight:bold; color:#facc15; }
+    nav ul { display:flex; list-style:none; gap:1.5rem; color:#1d4ed8; }
+    nav ul li:hover { color:#facc15; cursor:pointer; }
+    section { padding:4rem 1rem; text-align:center; }
+    .hero { height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; background: linear-gradient(to bottom right, #fef9c3, #dbeafe); }
+    .hero h1 { font-size:3rem; color:#1d4ed8; margin-bottom:1rem; }
+    .hero p { color:#3b82f6; margin-bottom:1.5rem; max-width:600px; }
+    .hero button { background:#facc15; color:white; padding:0.75rem 1.5rem; border-radius:1rem; border:none; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+    .hero button:hover { background:#fde047; }
+    .footer { background:#1e3a8a; color:white; padding:2rem; margin-top:3rem; }
+    .formations, .avantages, .temoignages, .cta, .contact { background:rgba(255,255,255,0.6); backdrop-filter: blur(5px); margin:2rem auto; border-radius:1rem; max-width:1200px; }
+    .formations video, .formations p, .temoignages div { margin-bottom:1rem; }
+    .cta { background:linear-gradient(to right, #facc15, #fbbf24); color:white; }
+    .cta button { background:white; color:#facc15; padding:0.75rem 1.5rem; border-radius:1rem; border:none; }
+    .cta button:hover { background:#fef9c3; }
+    form { display:flex; flex-direction:column; gap:1rem; max-width:400px; margin:0 auto; background:white; padding:2rem; border-radius:1rem; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+    input, textarea { padding:0.5rem; border:1px solid #ccc; border-radius:0.5rem; }
+    form button { background:#facc15; color:white; border:none; padding:0.75rem; border-radius:0.5rem; }
+    form button:hover { background:#fde047; }
