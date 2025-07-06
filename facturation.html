@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facturation - L’Essentiel de la Compta</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f8f9fa;
+    }
+    h1 {
+      text-align: center;
+      color: #007BFF;
+      margin-bottom: 2rem;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .form-container label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    .form-container input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-container button {
+      width: 100%;
+      padding: 1rem;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .form-container button:hover {
+      background-color: #0056b3;
+    }
+    .summary {
+      margin-top: 1.5rem;
+      background-color: #e9ecef;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Facturation</h1>
+  <div class="form-container">
+    <div class="summary">
+      <p><strong>Produit :</strong> <span id="produit">Chargement...</span></p>
+      <p><strong>Prix :</strong> <span id="prix">Chargement...</span> FCFA</p>
+    </div>
+    <form id="facture-form">
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" name="nom" required>
+
+      <label for="prenom">Prénom :</label>
+      <input type="text" id="prenom" name="prenom" required>
+
+      <label for="telephone">Téléphone :</label>
+      <input type="tel" id="telephone" name="telephone" required>
+
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" required>
+
+      <button type="submit">Confirmer la commande</button>
+    </form>
+  </div>
+
+  <script>
+    // Récupère les paramètres de l'URL
+  const params = new URLSearchParams(window.location.search);
+  const produit = params.get("produit") || "Non défini";
+  const prix = params.get("prix") || "0";
+
+  document.getElementById("produit").textContent = produit;
+  document.getElementById("prix").textContent = prix;
+
+  document.getElementById("facture-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const nom = document.getElementById("nom").value;
+    const prenom = document.getElementById("prenom").value;
+    const telephone = document.getElementById("telephone").value;
+    const email = document.getElementById("email").value;
+
+    // Crée le message WhatsApp
+    const message = `Bonjour, je souhaite commander :
+- Produit : ${produit}
+- Prix : ${prix} FCFA
+- Nom : ${prenom} ${nom}
+- Téléphone : ${telephone}
+- Email : ${email}`;
+
+    const url = `https://wa.me/241074369918?text=${encodeURIComponent(message)}`;
+    window.location.href = url;
+  });
+</script>
